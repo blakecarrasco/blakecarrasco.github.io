@@ -1,4 +1,9 @@
 html {
-  background: black;
-  color: #e0e0e0;
+	background: black;
+	color: #e0e0e0;
+	font-family: Hack;
+}
+
+#email {
+	color:#e0e0e0;
 }
