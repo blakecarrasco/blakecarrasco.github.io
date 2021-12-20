@@ -4,6 +4,16 @@ html {
 	font-family: Hack;
 }
 
+body{
+	position: absolute;
+	z-index: 3
+}
+
 #email {
 	color:#e0e0e0;
+}
+
+canvas{
+	position: absolute;
+	z-index: 1;
 }

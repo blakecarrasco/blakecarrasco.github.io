@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html>
-	<body>
-		<h1>Blake Carrasco</h1>
-		<p>LED & Video</p>
-		<p>résumé available upon request</p>
-		<a id="email", href="mailto:blake.carrasco@pm.me">Email</a>
-	</body>
 <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'>
 <link rel="stylesheet" href="style.css">
-</html>
+	<div>
+		<script src="js/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
+			scene.background = null;
+
+			const renderer = new THREE.WebGLRenderer({
+				alpha: true
+			});
+			renderer.setSize(320, 240);
+			document.body.appendChild( renderer.domElement );
+
+			const geometryR = new THREE.BoxGeometry(.5,.5,.5);
+			const materialR = new THREE.MeshBasicMaterial( { color: 0xff0000} );
+			const cubeR = new THREE.Mesh( geometryR, materialR );
+			scene.add( cubeR );
+			cubeR.position.set(-1, 1, 0);
+
+
+			const geometryG = new THREE.BoxGeometry(.5,.5,.5);
+			const materialG = new THREE.MeshBasicMaterial( { color: 0x00ff00} );
+			const cubeG = new THREE.Mesh( geometryG, materialG );
+			scene.add( cubeG );
+			cubeG.position.set(1, 1, 0);
+
+
+			const geometryB = new THREE.BoxGeometry(.5,.5,.5);
+			const materialB = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
+			const cubeB = new THREE.Mesh( geometryB, materialB );
+			scene.add( cubeB );
+			cubeB.position.set(3, 1, 0);
+
+			camera.position.z = 5;
+			scene.background = null;
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+
+				cubeR.rotation.x += -0.01;
+				cubeR.rotation.y += 0.01;
+				cubeG.rotation.x += 0.01;
+				cubeG.rotation.y += -0.01;
+				cubeB.rotation.x += -0.01;
+				cubeB.rotation.y += -0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</div>
+	<body>
+		<div>
+			<h1>Blake Carrasco</h1>
+			<p>LED & Video</p>
+			<p>résumé available upon request</p>
+			<a id="email", href="mailto:blake.carrasco@pm.me">blake.carrasco@pm.me</a>
+		</div>
+	</body>
+</html> 
